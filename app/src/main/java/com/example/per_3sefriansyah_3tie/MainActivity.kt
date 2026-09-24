@@ -20,5 +20,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FourthActivity::class.java)
             startActivity(intent)
         }
+
     }
 }
