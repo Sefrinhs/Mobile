@@ -37,6 +37,14 @@
         android:id="@+id/btnToFourth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ke Fourth Activity" />
+        android:text="Ke Fourth Activity"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Tombol Logout -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout" />
 
 </LinearLayout>
