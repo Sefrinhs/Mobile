@@ -47,4 +47,13 @@
         android:layout_height="wrap_content"
         android:text="Logout" />
 
+    <Button
+        android:id="@+id/btnPertemuan6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Pertemuan 6"
+        android:textAllCaps="false" />
+
+
 </LinearLayout>
