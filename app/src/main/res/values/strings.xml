@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Per - 3 Sefriansyah_3TIE</string>
     <string name="verif">Verifikasi Login</string>
+    <string name="halaman_pertemuan_7">Halaman Pertemuan 7</string>
+    <string name="pertemuan_7">Pertemuan 7</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
