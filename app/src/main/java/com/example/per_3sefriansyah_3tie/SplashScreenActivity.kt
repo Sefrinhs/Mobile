@@ -15,30 +15,10 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         lifecycleScope.launch {
-
             delay(2000)
 
-            val sharedPref =
-                getSharedPreferences("user_pref", MODE_PRIVATE)
-
-            val isLogin =
-                sharedPref.getBoolean("isLogin", false)
-
-            if (isLogin) {
-
-                val intent =
-                    Intent(this@SplashScreenActivity, MainActivity::class.java)
-
-                startActivity(intent)
-
-            } else {
-
-                val intent =
-                    Intent(this@SplashScreenActivity, AuthActivity::class.java)
-
-                startActivity(intent)
-            }
-
+            val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }

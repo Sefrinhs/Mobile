@@ -7,12 +7,10 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.per_3sefriansyah_3tie.R
 import com.example.per_3sefriansyah_3tie.databinding.ActivityFifthBinding
-import com.example.per_3sefriansyah_3tie.pertemuan5.WebViewActivity
 
 class FifthActivity : AppCompatActivity() {
 
@@ -40,16 +38,18 @@ class FifthActivity : AppCompatActivity() {
             insets
         }
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
 
         supportActionBar?.apply {
-            title = "Activity Fifth"
-            subtitle = "Ini adalah subtitle"
+            title = "Pertemuan 5"
+            subtitle = "Activity Fifth & WebView"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
             setHomeAsUpIndicator(R.drawable.outline_arrow_back_ios_new_24)
+        }
+
+        binding.toolbar.setNavigationOnClickListener {
+            finish()
         }
 
         binding.btnWebView.setOnClickListener {
@@ -66,9 +66,8 @@ class FifthActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-
             android.R.id.home -> {
-                onBackPressedDispatcher.onBackPressed()
+                finish()
                 true
             }
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.SimpleAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.per_3sefriansyah_3tie.R
 import com.example.per_3sefriansyah_3tie.databinding.FragmentMoreBinding
 
 class FragmentMore : Fragment() {
@@ -14,38 +15,15 @@ class FragmentMore : Fragment() {
     private var _binding: FragmentMoreBinding? = null
     private val binding get() = _binding!!
 
-    private val dataList = listOf(
-        "Kotlin",
-        "Java",
-        "Python",
-        "C++",
-        "JavaScript",
-        "Dart",
-        "Swift",
-        "Go",
-        "Ruby",
-        "R",
-        "PHP",
-        "C#",
-        "TypeScript",
-        "Shell",
-        "SQL",
-        "Perl",
-        "Rust",
-        "Scala",
-        "Haskell",
-        "Lua",
-        "Erlang",
-        "Prolog",
-        "Assembly",
-        "Objective-C",
-        "VBA"
-    )
-
     private val dataListWithDesc = listOf(
         mapOf("title" to "Kotlin", "desc" to "Bahasa untuk Android modern"),
         mapOf("title" to "Java", "desc" to "Bahasa OOP yang populer"),
-        mapOf("title" to "Python", "desc" to "Bahasa yang mudah dipahami")
+        mapOf("title" to "Python", "desc" to "Bahasa yang mudah dipahami"),
+        mapOf("title" to "C++", "desc" to "Bahasa sistem performa tinggi"),
+        mapOf("title" to "JavaScript", "desc" to "Bahasa utama web development"),
+        mapOf("title" to "Dart", "desc" to "Bahasa untuk Flutter"),
+        mapOf("title" to "Swift", "desc" to "Bahasa native iOS"),
+        mapOf("title" to "Go", "desc" to "Bahasa backend buatan Google")
     )
 
     override fun onCreateView(
@@ -59,6 +37,11 @@ class FragmentMore : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.toolbar.setNavigationIcon(R.drawable.outline_arrow_back_ios_new_24)
+        binding.toolbar.setNavigationOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
 
         val adapter = SimpleAdapter(
             requireContext(),

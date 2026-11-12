@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.per_3sefriansyah_3tie.R
 import com.example.per_3sefriansyah_3tie.databinding.ItemMessageBinding
-import com.google.android.material.snackbar.Snackbar
 
 class MessageAdapter(
     context: Context,
-    private val messages: List<MessageModel>
+    private val messages: List<MessageModel>,
+    private val onItemClick: ((MessageModel) -> Unit)? = null
 ) : ArrayAdapter<MessageModel>(context, 0, messages) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -26,17 +28,22 @@ class MessageAdapter(
 
         Glide.with(context)
             .load(data.avatarUrl)
+            .placeholder(R.drawable.ic_launcher_foreground)
             .into(binding.avatarImg)
 
         binding.textSender.text = data.senderName
         binding.textMessage.text = data.messageText
 
         view.setOnClickListener {
-            Snackbar.make(
-                parent,
-                "Pesan dari ${data.senderName}: ${data.messageText}",
-                Snackbar.LENGTH_SHORT
-            ).show()
+            if (onItemClick != null) {
+                onItemClick.invoke(data)
+            } else {
+                Toast.makeText(
+                    context,
+                    "Pesan dari ${data.senderName}: ${data.messageText}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
         return view

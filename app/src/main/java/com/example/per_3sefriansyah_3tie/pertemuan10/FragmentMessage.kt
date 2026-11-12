@@ -1,11 +1,15 @@
 package com.example.per_3sefriansyah_3tie.pertemuan10
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.per_3sefriansyah_3tie.R
 import com.example.per_3sefriansyah_3tie.databinding.FragmentMessageBinding
+import com.example.per_3sefriansyah_3tie.pertemuan10.tutorial.TutorialMessageActivity
 
 class FragmentMessage : Fragment() {
 
@@ -37,7 +41,34 @@ class FragmentMessage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = MessageAdapter(requireContext(), messageList)
+        binding.toolbar.title = "Message"
+        binding.toolbar.setNavigationIcon(R.drawable.outline_arrow_back_ios_new_24)
+        binding.toolbar.setNavigationOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
+        binding.toolbar.inflateMenu(R.menu.message_toolbar_menu)
+        binding.toolbar.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.action_tutorial -> {
+                    startActivity(Intent(requireContext(), TutorialMessageActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+
+        binding.fabTutorial.setOnClickListener {
+            startActivity(Intent(requireContext(), TutorialMessageActivity::class.java))
+        }
+
+        val adapter = MessageAdapter(requireContext(), messageList) { selectedMessage ->
+            Toast.makeText(
+                requireContext(),
+                "Pesan dari ${selectedMessage.senderName}: ${selectedMessage.messageText}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
         binding.listMessageItems.adapter = adapter
     }
 

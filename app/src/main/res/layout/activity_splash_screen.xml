@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PER 3 SEFRIANSYAH"
+        android:text="Welcome Frian"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -28,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mobile Application"
+        android:text="Thanks For You"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:layout_marginTop="8dp" />

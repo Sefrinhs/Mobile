@@ -1,9 +1,11 @@
 package com.example.per_3sefriansyah_3tie.pertemuan5
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MenuItem
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +17,7 @@ class WebViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWebViewBinding
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,6 +25,12 @@ class WebViewActivity : AppCompatActivity() {
 
         binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(
@@ -38,26 +47,24 @@ class WebViewActivity : AppCompatActivity() {
             insets
         }
 
-        // Mengatur WebView
         binding.webview.webViewClient = WebViewClient()
-
         binding.webview.settings.javaScriptEnabled = true
-
         binding.webview.loadUrl("https://merdeka.com")
-    }
 
-    // Tombol Back Android
-    override fun onBackPressed() {
-        if (binding.webview.canGoBack()) {
-            binding.webview.goBack()
-        } else {
-            super.onBackPressed()
-        }
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (binding.webview.canGoBack()) {
+                    binding.webview.goBack()
+                } else {
+                    isEnabled = false
+                    finish()
+                }
+            }
+        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-
             android.R.id.home -> {
                 onBackPressedDispatcher.onBackPressed()
                 true

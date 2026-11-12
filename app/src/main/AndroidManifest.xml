@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -36,23 +38,59 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- Fourth Activity -->
+        <!-- Pertemuan 2 Activity -->
         <activity
-            android:name=".Pertemuan4.FourthActivity"
+            android:name=".pertemuan2.SecondActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- Third Result Activity -->
+        <!-- Pertemuan 3 Activities -->
         <activity
-            android:name=".Pertemuan3.ThirdResultActivity"
+            android:name=".pertemuan3.ThirdActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pertemuan3.ThirdResultActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pertemuan 4 Activity -->
+        <activity
+            android:name=".pertemuan4.FourthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pertemuan 5 Activities -->
+        <activity
+            android:name=".pertemuan5.FifthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pertemuan5.WebViewActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pertemuan 7 Activity -->
         <activity
             android:name=".pertemuan7.SeventhActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pertemuan 9 Activity -->
         <activity
-            android:name=".pertemuan5.MainActivity"
+            android:name=".pertemuan9.NinthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pertemuan 10 Tutorial Activity -->
+        <activity
+            android:name=".pertemuan10.tutorial.TutorialMessageActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pertemuan 11 Activity -->
+        <activity
+            android:name=".pertemuan11.ElevenActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

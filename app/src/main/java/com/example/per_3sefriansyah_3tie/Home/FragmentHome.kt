@@ -1,4 +1,4 @@
-package com.example.per_3sefriansyah_3tie.Home
+package com.example.per_3sefriansyah_3tie.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,15 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.per_3sefriansyah_3tie.Home.pertemuan_9.NinthActivity
-import com.example.per_3sefriansyah_3tie.Pertemuan2.SecondActivity
-import com.example.per_3sefriansyah_3tie.Pertemuan3.ThirdActivity
-import com.example.per_3sefriansyah_3tie.Pertemuan4.FourthActivity
 import com.example.per_3sefriansyah_3tie.R
 import com.example.per_3sefriansyah_3tie.databinding.FragmentHomeBinding
 import com.example.per_3sefriansyah_3tie.pertemuan10.FragmentMessage
 import com.example.per_3sefriansyah_3tie.pertemuan10.FragmentMore
+import com.example.per_3sefriansyah_3tie.pertemuan11.ElevenActivity
+import com.example.per_3sefriansyah_3tie.pertemuan2.SecondActivity
+import com.example.per_3sefriansyah_3tie.pertemuan3.ThirdActivity
+import com.example.per_3sefriansyah_3tie.pertemuan4.FourthActivity
+import com.example.per_3sefriansyah_3tie.pertemuan5.FifthActivity
 import com.example.per_3sefriansyah_3tie.pertemuan7.SeventhActivity
+import com.example.per_3sefriansyah_3tie.pertemuan9.NinthActivity
 
 class FragmentHome : Fragment() {
 
@@ -46,7 +48,7 @@ class FragmentHome : Fragment() {
         }
 
         binding.btnPertemuan5.setOnClickListener {
-            startActivity(Intent(requireContext(), com.example.per_3sefriansyah_3tie.pertemuan5.MainActivity::class.java))
+            startActivity(Intent(requireContext(), FifthActivity::class.java))
         }
 
         binding.btnPertemuan7.setOnClickListener {
@@ -69,6 +71,10 @@ class FragmentHome : Fragment() {
                 .replace(R.id.fragment_container, FragmentMore())
                 .addToBackStack(null)
                 .commit()
+        }
+
+        binding.btnPertemuan11.setOnClickListener {
+            startActivity(Intent(requireContext(), ElevenActivity::class.java))
         }
     }
 

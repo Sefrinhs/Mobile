@@ -1,12 +1,13 @@
-package com.example.per_3sefriansyah_3tie.Home.pertemuan_9
+package com.example.per_3sefriansyah_3tie.pertemuan9
 
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.toColorInt
 import com.example.per_3sefriansyah_3tie.databinding.ActivityNinthBinding
 import com.google.android.material.chip.Chip
 
@@ -16,6 +17,7 @@ class NinthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityNinthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -26,10 +28,9 @@ class NinthActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            // Animasi Warna Tombol (Primary -> Green -> Primary)
             val initialColor = binding.btnLogin.backgroundTintList?.defaultColor
-                ?: Color.parseColor("#6200EE")
-            val targetColor = Color.parseColor("#4CAF50")
+                ?: "#6200EE".toColorInt()
+            val targetColor = "#4CAF50".toColorInt()
 
             val colorAnim = ValueAnimator.ofObject(
                 ArgbEvaluator(),
@@ -56,8 +57,20 @@ class NinthActivity : AppCompatActivity() {
             val selectedChipId = checkedIds.firstOrNull()
             if (selectedChipId != null) {
                 val chip = group.findViewById<Chip>(selectedChipId)
-                Toast.makeText(this, "Filter: ${chip.text}", Toast.LENGTH_SHORT).show()
+                if (chip != null) {
+                    Toast.makeText(this, "Filter: ${chip.text}", Toast.LENGTH_SHORT).show()
+                }
             }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
