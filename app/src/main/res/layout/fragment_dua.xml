@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fontFamily="@font/monsterrat_black"
+        android:fontFamily="@font/font1"
         android:textSize="40sp"
         android:text="Ini Frame 1" />
 

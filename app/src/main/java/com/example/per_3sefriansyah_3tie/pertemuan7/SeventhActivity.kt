@@ -3,7 +3,7 @@ package com.example.per_3sefriansyah_3tie.pertemuan7
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.example.pertemuan_7.R
+import com.example.per_3sefriansyah_3tie.R
 
 class SeventhActivity : AppCompatActivity() {
 

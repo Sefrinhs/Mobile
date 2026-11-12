@@ -56,15 +56,4 @@
         android:textAllCaps="false" />
 
 
-    <Button
-        android:id="@+id/btnToFifth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ke Fifth Activity" />
-
-    <Button
-        android:id="@+id/btnShowSnackbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ShowSncakBar" />
 </LinearLayout>
